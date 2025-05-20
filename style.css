@@ -22,8 +22,28 @@
 body {
   font-size: 16px;
   font-family: "futura";
+  display: grid;
+  place-items: center;
+  font-weight: 600;
 }
 
 h1 {
   font-weight: 600;
+}
+
+.book-contianer {
+  display: flex;
+  gap: 1rem;
+
+  background-color: azure;
+  text-align: center;
+  padding: 1rem;
+}
+
+.book-item {
+  width: 10rem;
+  border: 1px solid black;
+  border-radius: 12px;
+  background-color: rgba(250, 235, 215, 0.507);
+  padding: 1rem;
 }
