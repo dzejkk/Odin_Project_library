@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "futura";
+  src: url("./assets/fonts/Futura\ Light\ font.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "futura";
+  src: url("./assets/fonts/Futura\ Bold\ font.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "futura";
+  src: url("./assets/fonts/futura\ medium\ bt.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-size: 16px;
+  font-family: "futura";
+}
+
+h1 {
+  font-weight: 600;
+}
