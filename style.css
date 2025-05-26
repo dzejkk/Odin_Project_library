@@ -19,6 +19,44 @@
   font-style: normal;
 }
 
+:root {
+  --color-base-100: oklch(25.33% 0.016 252.42);
+  --color-base-200: oklch(23.26% 0.014 253.1);
+  --color-base-300: oklch(21.15% 0.012 254.09);
+  --color-base-content: oklch(97.807% 0.029 256.847);
+  --color-primary: oklch(58% 0.233 277.117);
+  --color-primary-content: oklch(96% 0.018 272.314);
+  --color-secondary: oklch(65% 0.241 354.308);
+  --color-secondary-content: oklch(94% 0.028 342.258);
+  --color-accent: oklch(77% 0.152 181.912);
+  --color-accent-content: oklch(38% 0.063 188.416);
+  --color-neutral: oklch(14% 0.005 285.823);
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: oklch(74% 0.16 232.661);
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: oklch(71% 0.194 13.428);
+  --color-error-content: oklch(27% 0.105 12.094);
+
+  --radius-selector: 0.25rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.25rem;
+
+  --size-selector: 0.25rem;
+  --size-field: 0.28125rem;
+
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+
+  --padding-small: 0.25rem;
+  --padding-medium: 0.5rem;
+  --paddig-large: 1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,27 +66,40 @@ body {
   font-size: 16px;
   font-family: "futura";
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 25% 75%;
   font-weight: 600;
+  background-color: var(--color-base-200);
 }
 
 h1 {
   font-weight: 600;
   font-size: 2.5rem;
   grid-column: 1 / 3;
-  background-color: aliceblue;
-  height: 100%;
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
   width: 100%;
   margin: auto;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  padding-block-end: var(--padding-small);
+}
+
+h2 {
+  padding-top: var(--padding-medium);
+  margin-top: var(--padding-medium);
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 aside {
   grid-column: 1 / 2;
-  background-color: rgba(240, 128, 128, 0.534);
+  background-color: var(--color-base-100);
   min-height: 20rem;
   width: 100%;
   text-align: center;
+  color: var(--color-base-content);
 }
 
 form {
@@ -57,7 +108,7 @@ form {
 }
 
 form > * {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .form-group {
@@ -68,6 +119,14 @@ form > * {
 
 .form-group > input {
   margin-left: auto;
+  padding: var(--padding-small);
+  outline: 2px solid transparent;
+  border: none;
+  border-radius: var(--radius-box);
+}
+
+input:focus {
+  outline: 3px solid var(--color-primary);
 }
 
 .book-contianer {
@@ -76,15 +135,42 @@ form > * {
   display: flex;
   gap: 1rem;
 
-  background-color: azure;
+  background-color: var(--color-base-200);
   text-align: center;
   padding: 1rem;
 }
 
 .book-item {
+  color: var(--color-base-content);
   width: 10rem;
-  border: 1px solid black;
-  border-radius: 12px;
-  background-color: rgba(250, 235, 215, 0.507);
+  border: 1px solid var(--color-base-200);
+  border-radius: 2px;
+  background-color: var(--color-base-100);
   padding: 1rem;
+}
+
+.book-item > * {
+  margin-block-end: 0.5rem;
+}
+
+/* buttons*/
+
+.button-primary {
+  padding: 1rem;
+  margin: 1rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-box);
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+  transition: all 0.2s ease-in-out;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+  filter: saturate(1.5);
+  filter: brightness(0.9);
+  color: var(--color-base-content);
 }

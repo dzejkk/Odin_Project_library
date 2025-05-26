@@ -1,5 +1,4 @@
 // Constructor
-
 const myLibrary = [];
 
 function Book(title, author, year, pages, id) {
@@ -21,10 +20,6 @@ function addBookToLibrary(title, author, year, pages) {
   return newBook;
 }
 
-// addBookToLibrary("Pan prstenov", 1998, 458, crypto.randomUUID());
-// addBookToLibrary("Harry Potter", 2001, 469, crypto.randomUUID());
-// addBookToLibrary("Blue Hustler", 2011, 429, crypto.randomUUID());
-
 /// render UI
 
 function renderUI(data) {
@@ -43,8 +38,7 @@ function renderUI(data) {
     .join("");
 }
 
-//initial render
-renderUI(myLibrary);
+renderUI(myLibrary); //initial render
 
 // add new book to library
 
@@ -60,7 +54,7 @@ function addNewBook(event) {
 
   // console.log(title, author, publicationYear, pages);
 
-  addBookToLibrary(title, author, publicationYear, pages); // parameters must match  Construtor function exactly !!!!
+  addBookToLibrary(title, author, publicationYear, pages); // parameters must match Construtor function exactly !!!!
 }
 
 form.addEventListener("submit", addNewBook);
