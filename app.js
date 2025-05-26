@@ -1,3 +1,5 @@
+///*@ts-check*/
+
 // Constructor
 const myLibrary = [];
 
@@ -14,6 +16,8 @@ function addBookToLibrary(title, author, year, pages) {
 
   const newBook = new Book(title, author, year, pages, id);
 
+  console.log(newBook);
+
   myLibrary.push(newBook);
 
   renderUI(myLibrary); // important for re rendering UI after book is added !!!
@@ -28,11 +32,13 @@ function renderUI(data) {
   bookContainer.innerHTML = data
     .map(
       (book) =>
-        `<div class="book-item">
-        <h3>${book.title}</h3>
-        <p>${book.author}</p>
-        <p>Year: ${book.year}</p>
-        <p>Pages: ${book.pages}</p>
+        `<div class="book-item" data-id=${book.id}>
+            <h3>${book.title}</h3>
+            <p>${book.author}</p>
+            <p>Year: ${book.year}</p>
+            <p>Pages: ${book.pages}</p>
+            <hr />
+            <button class="remove-button" id="remove-button">Remove item</button>
       </div>`
     )
     .join("");
@@ -58,3 +64,29 @@ function addNewBook(event) {
 }
 
 form.addEventListener("submit", addNewBook);
+
+// remove book
+// add event listener to the parent elemnt, when  element dont exist
+
+const bookContainer = document.getElementById("book-container");
+
+bookContainer.addEventListener("click", (event) => {
+  if (
+    event.target instanceof HTMLElement &&
+    event.target.classList.contains("remove-button")
+  ) {
+    const bookItem = event.target.closest(".book-item");
+
+    if (bookItem instanceof HTMLElement) {
+      const bookId = bookItem.dataset.id;
+      console.log(bookId);
+
+      // Remove the return statement and continue with the removal logic
+      const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+      if (bookIndex > -1) {
+        myLibrary.splice(bookIndex, 1);
+        renderUI(myLibrary); // Re-render after removal
+      }
+    }
+  }
+});

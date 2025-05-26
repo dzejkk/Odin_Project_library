@@ -174,3 +174,22 @@ input:focus {
   filter: brightness(0.9);
   color: var(--color-base-content);
 }
+
+.remove-button {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-box);
+  cursor: pointer;
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  transition: all 0.2s ease-in-out;
+}
+
+.remove-button:hover,
+.remove-button:focus {
+  background-color: var(--color-error);
+  color: var(--color-error-content);
+}
