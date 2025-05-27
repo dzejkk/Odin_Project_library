@@ -3,18 +3,19 @@
 // Constructor
 const myLibrary = [];
 
-function Book(title, author, year, pages, id) {
+function Book(title, author, year, pages, id, hasBeenRead) {
   this.author = author;
   this.title = title;
   this.year = year;
   this.pages = pages;
   this.id = id;
+  this.hasBeenRead = hasBeenRead;
 }
 
-function addBookToLibrary(title, author, year, pages) {
+function addBookToLibrary(title, author, year, pages, hasBeenRead) {
   const id = crypto.randomUUID();
 
-  const newBook = new Book(title, author, year, pages, id);
+  const newBook = new Book(title, author, year, pages, id, hasBeenRead);
 
   console.log(newBook);
 
@@ -37,6 +38,7 @@ function renderUI(data) {
             <p>${book.author}</p>
             <p>Year: ${book.year}</p>
             <p>Pages: ${book.pages}</p>
+            <small>read: ${book.hasBeenRead}</small>
             <hr />
             <button class="remove-button" id="remove-button">Remove item</button>
       </div>`
@@ -58,9 +60,15 @@ function addNewBook(event) {
   const publicationYear = document.getElementById("year").value;
   const pages = document.getElementById("pages").value;
 
+  const hasBeenRead = document.querySelector(
+    'input[name="hasBeenRead"]:checked'
+  ).value; //get the selected value
+
+  //console.log(hasBeenRead);
+
   // console.log(title, author, publicationYear, pages);
 
-  addBookToLibrary(title, author, publicationYear, pages); // parameters must match Construtor function exactly !!!!
+  addBookToLibrary(title, author, publicationYear, pages, hasBeenRead); // parameters must match Construtor function exactly !!!!
 }
 
 form.addEventListener("submit", addNewBook);
@@ -76,14 +84,16 @@ bookContainer.addEventListener("click", (event) => {
     event.target.classList.contains("remove-button")
   ) {
     const bookItem = event.target.closest(".book-item");
+    //console.log(bookItem);
 
     if (bookItem instanceof HTMLElement) {
       const bookId = bookItem.dataset.id;
-      console.log(bookId);
+      //console.log(bookId);
+      //console.log(myLibrary);
 
-      // Remove the return statement and continue with the removal logic
       const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
       if (bookIndex > -1) {
+        console.log(bookIndex);
         myLibrary.splice(bookIndex, 1);
         renderUI(myLibrary); // Re-render after removal
       }
