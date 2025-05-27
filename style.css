@@ -111,6 +111,10 @@ form > * {
   margin-bottom: 0.75rem;
 }
 
+small {
+  display: block;
+}
+
 hr {
   margin-block: var(--padding-medium);
 }
@@ -197,4 +201,23 @@ input:focus {
 .remove-button:focus {
   background-color: var(--color-error);
   color: var(--color-error-content);
+}
+
+.status-button {
+  padding: 0.25rem;
+  margin: 0.25rem;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-box);
+  cursor: pointer;
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  transition: all 0.2s ease-in-out;
+}
+
+.status-button:hover,
+.status-button:focus {
+  background-color: var(--color-accent);
+  color: var(--color-accent-content);
 }
