@@ -1,7 +1,93 @@
 ///*@ts-check*/
 
 // Constructor
-const myLibrary = [];
+
+// Assuming you have a Book constructor/class
+// You'll need to import or define your Book class here
+// import Book from './Book.js'; // or however you import it
+
+const myLibrary = [
+  new Book(
+    "Spoločenstvo Prstena",
+    "J.R.R. Tolkien",
+    "2005",
+    "459",
+    "f2d844d4-45bb-495f-ab17-7629cf02a5db",
+    true
+  ),
+  new Book(
+    "1984",
+    "George Orwell",
+    "1949",
+    "328",
+    "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    false
+  ),
+  new Book(
+    "To Kill a Mockingbird",
+    "Harper Lee",
+    "1960",
+    "281",
+    "b2c3d4e5-f6g7-8901-bcde-f23456789012",
+    true
+  ),
+  new Book(
+    "The Great Gatsby",
+    "F. Scott Fitzgerald",
+    "1925",
+    "180",
+    "c3d4e5f6-g7h8-9012-cdef-345678901234",
+    false
+  ),
+  new Book(
+    "Pride and Prejudice",
+    "Jane Austen",
+    "1813",
+    "432",
+    "d4e5f6g7-h8i9-0123-defg-456789012345",
+    true
+  ),
+  new Book(
+    "Brave New World",
+    "Aldous Huxley",
+    "1932",
+    "268",
+    "e5f6g7h8-i9j0-1234-efgh-567890123456",
+    false
+  ),
+  new Book(
+    "The Catcher in the Rye",
+    "J.D. Salinger",
+    "1951",
+    "234",
+    "f6g7h8i9-j0k1-2345-fghi-678901234567",
+    true
+  ),
+  new Book(
+    "Moby Dick",
+    "Herman Melville",
+    "1851",
+    "635",
+    "g7h8i9j0-k1l2-3456-ghij-789012345678",
+    false
+  ),
+  new Book(
+    "Fahrenheit 451",
+    "Ray Bradbury",
+    "1953",
+    "194",
+    "h8i9j0k1-l2m3-4567-hijk-890123456789",
+    true
+  ),
+  new Book(
+    "Jane Eyre",
+    "Charlotte Brontë",
+    "1847",
+    "507",
+    "i9j0k1l2-m3n4-5678-ijkl-901234567890",
+    false
+  ),
+];
 
 function Book(title, author, year, pages, id, hasBeenRead) {
   this.author = author;
@@ -17,6 +103,7 @@ function Book(title, author, year, pages, id, hasBeenRead) {
 Book.prototype.toggleReadStatus = function () {
   this.hasBeenRead = !this.hasBeenRead; //simple toggle
   console.log(`status has been change to ${this.hasBeenRead}`);
+  console.log(myLibrary);
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -78,6 +165,7 @@ function addNewBook(event) {
   // console.log(title, author, publicationYear, pages);
   addBookToLibrary(title, author, publicationYear, pages, hasBeenRead); // parameters must match Construtor function exactly !!!!
   form.reset();
+  console.log(myLibrary);
 }
 form.addEventListener("submit", addNewBook);
 

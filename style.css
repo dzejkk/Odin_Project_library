@@ -156,6 +156,11 @@ input:focus {
   border-radius: 2px;
   background-color: var(--color-base-100);
   padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.book-item:hover {
+  filter: brightness(1.2);
 }
 
 .book-item > * {
